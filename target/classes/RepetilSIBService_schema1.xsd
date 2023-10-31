@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="http://servico.soap.seisbot.br/" xmlns:tns="http://servico.soap.seisbot.br/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="adicionar" type="tns:adicionar"/>
+
+  <xs:element name="adicionarResponse" type="tns:adicionarResponse"/>
+
+  <xs:element name="ler" type="tns:ler"/>
+
+  <xs:element name="lerResponse" type="tns:lerResponse"/>
+
+  <xs:element name="listar" type="tns:listar"/>
+
+  <xs:element name="listarResponse" type="tns:listarResponse"/>
+
+  <xs:complexType name="ler">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="lerResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:repetil" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="repetil">
+    <xs:sequence>
+      <xs:element name="id" type="xs:string" minOccurs="0"/>
+      <xs:element name="tamanho" type="xs:string" minOccurs="0"/>
+      <xs:element name="temperatura" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="adicionar">
+    <xs:sequence>
+      <xs:element name="arg0" type="tns:repetil" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="adicionarResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:repetil" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="listar">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="listarResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:repetil" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+
